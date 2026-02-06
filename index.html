@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЛактоМама — Консультанты по грудному вскармливанию | Мурманская область</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS Variables ===== */
+:root[data-theme="light"] {
+  --bg-primary: #FDF8F4;
+  --bg-secondary: #FAF0E8;
+  --bg-card: #FFFFFF;
+  --bg-accent: #F5E6D8;
+  --text-primary: #2D2A26;
+  --text-secondary: #6B6560;
+  --text-muted: #9B9590;
+  --accent: #C4856C;
+  --accent-hover: #B5725A;
+  --accent-light: #EDDDD3;
+  --accent-soft: #F7EDE6;
+  --border: #E8DDD4;
+  --shadow: rgba(45, 42, 38, 0.08);
+  --shadow-strong: rgba(45, 42, 38, 0.15);
+  --hero-overlay: rgba(253, 248, 244, 0.4);
+  --parallax-dot: rgba(196, 133, 108, 0.12);
+  --nav-bg: rgba(253, 248, 244, 0.92);
+}
+
+:root[data-theme="dark"] {
+  --bg-primary: #1A1816;
+  --bg-secondary: #222019;
+  --bg-card: #2A2722;
+  --bg-accent: #332F28;
+  --text-primary: #F0EBE5;
+  --text-secondary: #B5AFA8;
+  --text-muted: #7D7872;
+  --accent: #D4956E;
+  --accent-hover: #E0A580;
+  --accent-light: #3D3228;
+  --accent-soft: #2E2820;
+  --border: #3A3630;
+  --shadow: rgba(0, 0, 0, 0.25);
+  --shadow-strong: rgba(0, 0, 0, 0.4);
+  --hero-overlay: rgba(26, 24, 22, 0.5);
+  --parallax-dot: rgba(212, 149, 110, 0.08);
+  --nav-bg: rgba(26, 24, 22, 0.92);
+}
+
+/* ===== Accessibility Mode ===== */
+:root[data-a11y="true"] {
+  --text-primary: #000000 !important;
+  --text-secondary: #222222 !important;
+  --text-muted: #444444 !important;
+  --accent: #8B4513 !important;
+  --accent-hover: #6B3410 !important;
+  --bg-primary: #FFFFFF !important;
+  --bg-secondary: #F5F5F5 !important;
+  --bg-card: #FFFFFF !important;
+  --border: #666666 !important;
+  --nav-bg: rgba(255,255,255,0.98) !important;
+  --hero-overlay: rgba(255,255,255,0.6) !important;
+}
+
+:root[data-a11y="true"][data-theme="dark"] {
+  --text-primary: #FFFFFF !important;
+  --text-secondary: #EEEEEE !important;
+  --text-muted: #CCCCCC !important;
+  --accent: #FFB87A !important;
+  --accent-hover: #FFC99A !important;
+  --bg-primary: #0A0A0A !important;
+  --bg-secondary: #1A1A1A !important;
+  --bg-card: #1A1A1A !important;
+  --border: #888888 !important;
+  --nav-bg: rgba(10,10,10,0.98) !important;
+  --hero-overlay: rgba(0,0,0,0.7) !important;
+}
+
+:root[data-a11y="true"] body {
+  font-family: Arial, Helvetica, sans-serif !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1.8 !important;
+}
+
+:root[data-a11y="true"] h1,
+:root[data-a11y="true"] h2,
+:root[data-a11y="true"] h3,
+:root[data-a11y="true"] .hero-title,
+:root[data-a11y="true"] .section-title {
+  font-family: Arial, Helvetica, sans-serif !important;
+  letter-spacing: 0.01em !important;
+}
+
+:root[data-a11y="true"] .font-size-controls { display: flex !important; }
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: var(--base-font-size, 16px);
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  transition: background 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+a { color: var(--accent); text-decoration: none; transition: color 0.3s; }
+a:hover { color: var(--accent-hover); }
+
+/* ===== Utility ===== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.font-size-controls {
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+.font-size-controls button {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  width: 32px; height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.font-size-controls button:hover { background: var(--accent); color: #fff; }
+
+/* ===== Navigation ===== */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.4s ease;
+}
+
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1200px; margin: 0 auto; padding: 16px 24px;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 700;
+  color: var(--text-primary);
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-logo svg { flex-shrink: 0; }
+
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a {
+  color: var(--text-secondary); font-size: 0.95rem; font-weight: 400;
+  position: relative; padding-bottom: 2px;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 0; height: 2px; background: var(--accent);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-controls { display: flex; align-items: center; gap: 8px; }
+
+.nav-btn {
+  background: none; border: 1px solid var(--border);
+  color: var(--text-secondary); border-radius: 10px;
+  padding: 8px 12px; cursor: pointer; font-size: 0.85rem;
+  display: flex; align-items: center; gap: 6px;
+  transition: all 0.3s ease;
+}
+.nav-btn:hover {
+  border-color: var(--accent); color: var(--accent);
+  background: var(--accent-soft);
+}
+.nav-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.burger {
+  display: none; background: none; border: none; cursor: pointer;
+  flex-direction: column; gap: 5px; padding: 4px;
+}
+.burger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--text-primary); transition: all 0.3s;
+  border-radius: 2px;
+}
+
+/* ===== Mobile Nav ===== */
+.mobile-nav {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--bg-primary); z-index: 999;
+  flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+.mobile-nav.open { display: flex; opacity: 1; pointer-events: all; }
+.mobile-nav a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; color: var(--text-primary);
+}
+.mobile-nav-controls { display: flex; gap: 12px; margin-top: 20px; }
+.mobile-close {
+  position: absolute; top: 20px; right: 24px;
+  background: none; border: none; font-size: 2rem;
+  color: var(--text-primary); cursor: pointer;
+}
+
+/* ===== Hero ===== */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center;
+  overflow: hidden; padding-top: 80px;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, var(--accent-light) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, var(--accent-soft) 0%, transparent 40%),
+    var(--bg-primary);
+}
+
+/* Parallax layer system */
+.parallax-layer {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+
+.parallax-item {
+  position: absolute;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Floating botanical SVG shapes */
+.px-leaf {
+  width: 80px; height: 80px;
+  border: 2px solid var(--accent);
+  border-radius: 0 50% 0 50%;
+  opacity: 0.12;
+}
+.px-leaf.lg { width: 160px; height: 160px; }
+.px-leaf.sm { width: 40px; height: 40px; }
+
+.px-ring {
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  opacity: 0.1;
+}
+.px-ring.lg { width: 280px; height: 280px; }
+.px-ring.md { width: 140px; height: 140px; }
+.px-ring.sm { width: 70px; height: 70px; }
+
+.px-dot {
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.15;
+}
+.px-dot.lg { width: 12px; height: 12px; }
+.px-dot.sm { width: 6px; height: 6px; }
+
+.px-cross {
+  width: 24px; height: 24px;
+  position: relative; opacity: 0.1;
+}
+.px-cross::before, .px-cross::after {
+  content: ''; position: absolute;
+  background: var(--accent);
+}
+.px-cross::before { width: 2px; height: 100%; left: 50%; transform: translateX(-50%); }
+.px-cross::after { height: 2px; width: 100%; top: 50%; transform: translateY(-50%); }
+
+.px-wave {
+  width: 200px; height: 60px;
+  border-bottom: 2px solid var(--accent);
+  border-radius: 0 0 50% 50%;
+  opacity: 0.08;
+}
+.px-wave.lg { width: 360px; height: 100px; }
+
+/* Parallax divider bands between sections */
+.parallax-band {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+.parallax-band-inner {
+  position: absolute; inset: 0;
+  display: flex; align-items: center;
+  will-change: transform;
+}
+.band-text {
+  white-space: nowrap;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.07;
+  letter-spacing: 0.05em;
+  animation: bandScroll 60s linear infinite;
+}
+.band-text span { margin: 0 60px; }
+
+@keyframes bandScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Parallax tilt cards */
+.tilt-parallax {
+  transition: transform 0.4s cubic-bezier(0.03, 0.98, 0.52, 0.99);
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 700px; padding: 60px 0;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent-soft); border: 1px solid var(--accent-light);
+  border-radius: 100px; padding: 8px 20px;
+  font-size: 0.85rem; color: var(--accent); font-weight: 600;
+  margin-bottom: 28px;
+  animation: fadeInUp 0.8s ease both;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 700; line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  animation: fadeInUp 0.8s ease 0.15s both;
+}
+.hero-title em {
+  font-style: italic; color: var(--accent);
+}
+
+.hero-desc {
+  font-size: 1.15rem; color: var(--text-secondary);
+  max-width: 520px; margin-bottom: 40px;
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+.hero-actions {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease 0.45s both;
+}
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 32px; border-radius: 12px;
+  font-size: 1rem; font-weight: 600;
+  cursor: pointer; transition: all 0.3s ease;
+  border: none;
+}
+.btn-primary {
+  background: var(--accent); color: #fff;
+  box-shadow: 0 4px 20px rgba(196, 133, 108, 0.3);
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(196, 133, 108, 0.4);
+}
+.btn-secondary {
+  background: var(--bg-card); color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover {
+  border-color: var(--accent); color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.hero-stats {
+  display: flex; gap: 48px; margin-top: 64px;
+  animation: fadeInUp 0.8s ease 0.6s both;
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem; font-weight: 700; color: var(--accent);
+  line-height: 1;
+}
+.stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+
+/* ===== Sections ===== */
+.section { padding: 100px 0; position: relative; }
+
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-tag {
+  font-size: 0.85rem; font-weight: 600; color: var(--accent);
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700; color: var(--text-primary);
+  margin-bottom: 16px;
+}
+.section-desc {
+  font-size: 1.05rem; color: var(--text-secondary);
+  max-width: 600px; margin: 0 auto;
+}
+
+/* ===== Services ===== */
+.services-bg { background: var(--bg-secondary); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  background: var(--bg-card); border-radius: 20px;
+  padding: 40px 32px; border: 1px solid var(--border);
+  transition: all 0.4s ease; position: relative; overflow: hidden;
+}
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: var(--accent); transform: scaleX(0);
+  transition: transform 0.4s ease; transform-origin: left;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px var(--shadow);
+}
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: var(--accent-soft); display: flex;
+  align-items: center; justify-content: center;
+  margin-bottom: 24px; font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.service-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 700;
+  margin-bottom: 12px; color: var(--text-primary);
+}
+.service-card p { color: var(--text-secondary); font-size: 0.95rem; }
+
+.service-price {
+  margin-top: 20px; padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-weight: 600; color: var(--accent);
+}
+
+/* ===== About / Parallax Section ===== */
+.about-parallax {
+  position: relative; padding: 120px 0;
+  overflow: hidden;
+}
+.about-parallax-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 70% 30%, var(--accent-light) 0%, transparent 40%),
+    radial-gradient(circle at 20% 70%, var(--accent-soft) 0%, transparent 35%),
+    var(--bg-primary);
+}
+.about-grid {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.about-visual {
+  position: relative;
+}
+.about-img-placeholder {
+  width: 100%; aspect-ratio: 4/5; border-radius: 24px;
+  background: linear-gradient(135deg, var(--accent-light), var(--accent-soft));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 6rem; position: relative; overflow: hidden;
+}
+.about-img-placeholder::after {
+  content: ''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    45deg, transparent, transparent 20px,
+    var(--parallax-dot) 20px, var(--parallax-dot) 21px
+  );
+}
+.about-float-card {
+  position: absolute; bottom: -20px; right: -20px;
+  background: var(--bg-card); border-radius: 16px;
+  padding: 20px 28px; border: 1px solid var(--border);
+  box-shadow: 0 10px 40px var(--shadow);
+}
+.about-float-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 700; color: var(--accent);
+}
+.about-float-label { font-size: 0.85rem; color: var(--text-muted); }
+
+.about-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 700; margin-bottom: 24px;
+}
+.about-content h2 em { font-style: italic; color: var(--accent); }
+.about-content p {
+  color: var(--text-secondary); margin-bottom: 20px; font-size: 1.05rem;
+}
+
+.credentials { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.credential {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--accent-soft); border: 1px solid var(--accent-light);
+  border-radius: 100px; padding: 10px 20px;
+  font-size: 0.9rem; color: var(--text-primary); font-weight: 600;
+}
+.credential svg { color: var(--accent); flex-shrink: 0; }
+
+/* ===== Team / Consultants ===== */
+.team-section { background: var(--bg-primary); }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.team-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  position: relative;
+}
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px var(--shadow);
+}
+
+.team-card.lead {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  border: 2px solid var(--accent-light);
+}
+
+.team-photo {
+  aspect-ratio: 3/4;
+  background: linear-gradient(160deg, var(--accent-light) 0%, var(--accent-soft) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.team-card.lead .team-photo {
+  aspect-ratio: auto;
+  min-height: 420px;
+  font-size: 7rem;
+}
+.team-photo::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    -45deg, transparent, transparent 30px,
+    var(--parallax-dot) 30px, var(--parallax-dot) 31px
+  );
+}
+
+.team-lead-badge {
+  position: absolute; top: 20px; left: 20px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  z-index: 2;
+}
+
+.team-info { padding: 32px; }
+.team-card.lead .team-info { padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; }
+
+.team-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.team-card.lead .team-name { font-size: 2.2rem; margin-bottom: 8px; }
+
+.team-role {
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.team-bio {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.team-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.team-tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 100px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-light);
+  color: var(--accent);
+}
+
+.team-stats-row {
+  display: flex; gap: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.team-stat-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+.team-stat-lbl {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.team-socials {
+  display: flex; gap: 10px; margin-top: 16px;
+}
+.team-social-link {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.3s;
+}
+.team-social-link:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .team-card.lead {
+    grid-template-columns: 1fr;
+  }
+  .team-card.lead .team-photo {
+    min-height: 280px;
+  }
+  .team-card.lead .team-info { padding: 28px 24px; }
+  .team-card.lead .team-name { font-size: 1.7rem; }
+}
+
+/* ===== Testimonials ===== */
+.testimonials-bg { background: var(--bg-secondary); }
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: var(--bg-card); border-radius: 20px;
+  padding: 36px; border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px var(--shadow);
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.carousel-btn {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s ease;
+}
+.carousel-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  transform: scale(1.08);
+}
+.carousel-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+.carousel-btn:disabled:hover {
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border-color: var(--border);
+}
+
+.carousel-dots {
+  display: flex; gap: 8px; align-items: center;
+}
+.carousel-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+.carousel-dot.active {
+  background: var(--accent);
+  width: 28px;
+  border-radius: 10px;
+}
+
+.testimonial-stars { color: var(--accent); font-size: 1.1rem; margin-bottom: 16px; letter-spacing: 2px; }
+.testimonial-text {
+  font-size: 1.05rem; color: var(--text-secondary);
+  margin-bottom: 24px; font-style: italic; line-height: 1.7;
+}
+.testimonial-author { display: flex; align-items: center; gap: 14px; }
+.testimonial-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--accent-light); display: flex;
+  align-items: center; justify-content: center;
+  font-weight: 700; color: var(--accent); font-size: 1.1rem;
+}
+.testimonial-name { font-weight: 600; color: var(--text-primary); font-size: 0.95rem; }
+.testimonial-detail { font-size: 0.8rem; color: var(--text-muted); }
+.testimonial-consultant {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 0.78rem; color: var(--accent); font-weight: 600;
+  margin-top: 4px;
+}
+
+/* ===== FAQ ===== */
+.faq-list { max-width: 760px; margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 24px 0;
+}
+.faq-question {
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer; width: 100%; background: none; border: none;
+  text-align: left; font-size: 1.1rem; font-weight: 600;
+  color: var(--text-primary); font-family: inherit;
+  padding: 0; gap: 16px;
+}
+.faq-question svg {
+  flex-shrink: 0; transition: transform 0.3s;
+  color: var(--accent);
+}
+.faq-item.open .faq-question svg { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease;
+  color: var(--text-secondary); font-size: 0.95rem;
+}
+.faq-item.open .faq-answer {
+  max-height: 300px; padding-top: 16px;
+}
+
+/* ===== CTA ===== */
+.cta-section {
+  padding: 100px 0; position: relative; overflow: hidden;
+}
+.cta-inner {
+  position: relative; z-index: 2;
+  background: var(--accent);
+  border-radius: 28px; padding: 72px 48px;
+  text-align: center; color: #fff;
+  overflow: hidden;
+}
+.cta-inner::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 0%, rgba(255,255,255,0.15) 0%, transparent 50%);
+}
+.cta-inner h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700; margin-bottom: 16px;
+  position: relative;
+}
+.cta-inner p {
+  font-size: 1.1rem; opacity: 0.9;
+  max-width: 500px; margin: 0 auto 36px;
+  position: relative;
+}
+.btn-white {
+  background: #fff; color: var(--accent); border: none;
+  font-weight: 700; position: relative;
+}
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 64px 0 32px;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px; margin-bottom: 48px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--text-primary); margin-bottom: 12px;
+}
+.footer-desc { color: var(--text-muted); font-size: 0.9rem; max-width: 300px; }
+.footer h4 {
+  font-size: 0.85rem; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.footer ul { list-style: none; }
+.footer li { margin-bottom: 10px; }
+.footer li a { color: var(--text-secondary); font-size: 0.95rem; }
+.footer li a:hover { color: var(--accent); }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex; justify-content: space-between;
+  font-size: 0.85rem; color: var(--text-muted);
+  flex-wrap: wrap; gap: 12px;
+}
+
+/* ===== Scroll To Top ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 32px; right: 32px;
+  width: 52px; height: 52px;
+  border-radius: 16px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 24px rgba(196, 133, 108, 0.35);
+  z-index: 900;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+.scroll-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+.scroll-top:hover {
+  background: var(--accent-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(196, 133, 108, 0.45);
+}
+.scroll-top svg { transition: transform 0.3s; }
+.scroll-top:hover svg { transform: translateY(-2px); }
+
+/* ===== Scroll To Bottom ===== */
+.scroll-bottom {
+  position: fixed;
+  top: 90px; right: 32px;
+  width: 46px; height: 46px;
+  border-radius: 14px;
+  background: var(--bg-card);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px var(--shadow);
+  z-index: 900;
+  opacity: 0;
+  transform: translateY(-16px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+.scroll-bottom.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+.scroll-bottom.hidden {
+  opacity: 0;
+  transform: translateY(-16px);
+  pointer-events: none;
+}
+.scroll-bottom:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  transform: translateY(3px);
+  box-shadow: 0 8px 24px rgba(196, 133, 108, 0.3);
+}
+.scroll-bottom svg { transition: transform 0.3s; }
+.scroll-bottom:hover svg { transform: translateY(2px); }
+
+@media (max-width: 768px) {
+  .scroll-top { bottom: 20px; right: 20px; width: 46px; height: 46px; border-radius: 14px; }
+  .scroll-bottom { top: 80px; right: 20px; width: 40px; height: 40px; border-radius: 12px; }
+}
+
+/* ===== Region Info ===== */
+.region-section { background: var(--bg-secondary); }
+
+.region-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.region-main {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 40px;
+  grid-column: 1 / -1;
+}
+.region-main h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 700;
+  margin-bottom: 16px; color: var(--text-primary);
+}
+.region-main h3 em { font-style: italic; color: var(--accent); }
+.region-main p {
+  color: var(--text-secondary); font-size: 1rem;
+  margin-bottom: 14px; line-height: 1.7;
+}
+
+.region-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+.region-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px var(--shadow);
+}
+.region-card-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: var(--accent-soft);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; margin-bottom: 18px;
+}
+.region-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; font-weight: 700;
+  margin-bottom: 10px; color: var(--text-primary);
+}
+.region-card p {
+  color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7;
+}
+.region-card ul {
+  list-style: none; margin-top: 12px;
+}
+.region-card ul li {
+  color: var(--text-secondary); font-size: 0.92rem;
+  padding: 6px 0; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 8px;
+}
+.region-card ul li:last-child { border: none; }
+.region-card ul li svg { color: var(--accent); flex-shrink: 0; }
+
+@media (max-width: 768px) {
+  .region-grid { grid-template-columns: 1fr; }
+  .region-main { padding: 28px 20px; }
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1; transform: translateY(0);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .burger { display: flex; }
+  .nav-controls .nav-btn span.btn-text { display: none; }
+  .hero-stats { gap: 28px; flex-wrap: wrap; }
+  .stat-num { font-size: 2rem; }
+  .section { padding: 64px 0; }
+  .services-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .cta-inner { padding: 48px 24px; }
+  .hero-actions { flex-direction: column; }
+  .btn { justify-content: center; }
+  .about-float-card { right: 10px; bottom: -10px; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 2.2rem; }
+  .hero-stats { flex-direction: column; gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" role="navigation" aria-label="Главная навигация">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="ЛактоМама — На главную">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.5" fill="var(--accent-soft)"/>
+        <path d="M10 20c0-4 3-8 6-8s6 4 6 8" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="16" cy="11" r="3" fill="var(--accent)" opacity="0.3"/>
+      </svg>
+      ЛактоМама
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#about">О нас</a></li>
+      <li><a href="#team">Консультанты</a></li>
+      <li><a href="#testimonials">Отзывы</a></li>
+      <li><a href="#faq">Вопросы</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+
+    <div class="nav-controls">
+      <div class="font-size-controls" aria-label="Управление размером шрифта">
+        <button onclick="changeFontSize(-1)" aria-label="Уменьшить шрифт">A−</button>
+        <button onclick="changeFontSize(1)" aria-label="Увеличить шрифт">A+</button>
+      </div>
+      <button class="nav-btn" id="a11yToggle" onclick="toggleA11y()" aria-label="Версия для слабовидящих" title="Версия для слабовидящих">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span class="btn-text">Для слабовидящих</span>
+      </button>
+      <button class="nav-btn" id="themeToggle" onclick="toggleTheme()" aria-label="Переключить тему" title="Переключить тему">
+        <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <button class="burger" id="burgerBtn" onclick="toggleMobileNav()" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Мобильное меню">
+  <button class="mobile-close" onclick="toggleMobileNav()" aria-label="Закрыть меню">&times;</button>
+  <a href="#services" onclick="toggleMobileNav()">Услуги</a>
+  <a href="#about" onclick="toggleMobileNav()">О нас</a>
+  <a href="#team" onclick="toggleMobileNav()">Консультанты</a>
+  <a href="#testimonials" onclick="toggleMobileNav()">Отзывы</a>
+  <a href="#faq" onclick="toggleMobileNav()">Вопросы</a>
+  <a href="#contact" onclick="toggleMobileNav()">Контакты</a>
+  <div class="mobile-nav-controls">
+    <button class="nav-btn" onclick="toggleA11y()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      Для слабовидящих
+    </button>
+    <button class="nav-btn" onclick="toggleTheme()">Тема</button>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="parallax-layer" id="parallaxLayer">
+    <!-- Layer 1: far background (slow) -->
+    <div class="parallax-item px-ring lg" data-speed="0.015" data-dir="1" style="top:5%;left:-4%"></div>
+    <div class="parallax-item px-ring lg" data-speed="0.012" data-dir="-1" style="top:55%;right:-6%"></div>
+    <div class="parallax-item px-wave lg" data-speed="0.018" data-dir="1" style="top:75%;left:10%"></div>
+
+    <!-- Layer 2: mid (medium) -->
+    <div class="parallax-item px-leaf lg" data-speed="0.035" data-dir="-1" style="top:12%;right:8%;transform:rotate(25deg)"></div>
+    <div class="parallax-item px-leaf" data-speed="0.04" data-dir="1" style="top:65%;left:5%;transform:rotate(-15deg)"></div>
+    <div class="parallax-item px-ring md" data-speed="0.03" data-dir="1" style="top:35%;right:15%"></div>
+    <div class="parallax-item px-wave" data-speed="0.028" data-dir="-1" style="top:20%;left:40%"></div>
+
+    <!-- Layer 3: near foreground (fast) -->
+    <div class="parallax-item px-leaf sm" data-speed="0.06" data-dir="-1" style="top:25%;left:20%;transform:rotate(45deg)"></div>
+    <div class="parallax-item px-leaf sm" data-speed="0.055" data-dir="1" style="top:70%;right:25%;transform:rotate(-30deg)"></div>
+    <div class="parallax-item px-ring sm" data-speed="0.065" data-dir="-1" style="top:45%;left:60%"></div>
+    <div class="parallax-item px-ring sm" data-speed="0.05" data-dir="1" style="top:80%;left:35%"></div>
+
+    <!-- Dots scattered -->
+    <div class="parallax-item px-dot lg" data-speed="0.07" data-dir="1" style="top:18%;left:45%"></div>
+    <div class="parallax-item px-dot sm" data-speed="0.08" data-dir="-1" style="top:40%;left:75%"></div>
+    <div class="parallax-item px-dot lg" data-speed="0.06" data-dir="-1" style="top:60%;left:15%"></div>
+    <div class="parallax-item px-dot sm" data-speed="0.09" data-dir="1" style="top:85%;right:10%"></div>
+    <div class="parallax-item px-dot sm" data-speed="0.075" data-dir="1" style="top:10%;right:30%"></div>
+
+    <!-- Crosses -->
+    <div class="parallax-item px-cross" data-speed="0.05" data-dir="-1" style="top:50%;left:85%"></div>
+    <div class="parallax-item px-cross" data-speed="0.045" data-dir="1" style="top:30%;left:8%"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Сертифицированные консультанты IBCLC
+      </div>
+      <h1 class="hero-title">Нежная помощь<br>в <em>грудном вскармливании</em></h1>
+      <p class="hero-desc">Поможем наладить кормление, решить проблемы с прикладыванием и сделать этот опыт комфортным для вас и малыша.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          Записаться на консультацию
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#services" class="btn btn-secondary">Наши услуги</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">1500+</div>
+          <div class="stat-label">Счастливых мам</div>
+        </div>
+        <div>
+          <div class="stat-num">12</div>
+          <div class="stat-label">Лет опыта</div>
+        </div>
+        <div>
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Успешных случаев</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Parallax Band -->
+<div class="parallax-band">
+  <div class="parallax-band-inner">
+    <div class="band-text">
+      <span>Грудное вскармливание</span><span>✦</span><span>Забота о маме</span><span>✦</span><span>Здоровье малыша</span><span>✦</span><span>Нежная поддержка</span><span>✦</span>
+      <span>Грудное вскармливание</span><span>✦</span><span>Забота о маме</span><span>✦</span><span>Здоровье малыша</span><span>✦</span><span>Нежная поддержка</span><span>✦</span>
+    </div>
+  </div>
+</div>
+
+<!-- Services -->
+<section class="section services-bg" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Услуги</div>
+      <h2 class="section-title">Чем мы можем помочь</h2>
+      <p class="section-desc">Индивидуальный подход к каждой ситуации. Мы рядом на каждом этапе вашего пути.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">🤱</div>
+        <h3>Первичная консультация</h3>
+        <p>Оценка прикладывания, решение проблем с захватом, помощь в первые дни после родов. Выезд на дом или онлайн.</p>
+        <div class="service-price">от 3 000 ₽</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📞</div>
+        <h3>Онлайн-поддержка</h3>
+        <p>Видеоконсультация из любой точки мира. Быстрый разбор ситуации и пошаговые рекомендации.</p>
+        <div class="service-price">от 2 000 ₽</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📋</div>
+        <h3>Подготовка к кормлению</h3>
+        <p>Занятия для будущих мам: всё о грудном вскармливании ещё до рождения малыша.</p>
+        <div class="service-price">от 2 500 ₽</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🏥</div>
+        <h3>Сопровождение в роддоме</h3>
+        <p>Помощь с первым прикладыванием и налаживанием кормления в первые часы жизни ребёнка.</p>
+        <div class="service-price">от 5 000 ₽</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💊</div>
+        <h3>Решение проблем</h3>
+        <p>Лактостаз, мастит, нехватка молока, болезненное кормление — найдём решение вместе.</p>
+        <div class="service-price">от 3 000 ₽</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">👶</div>
+        <h3>Введение прикорма</h3>
+        <p>Мягкое введение прикорма с сохранением грудного вскармливания. Индивидуальный план питания.</p>
+        <div class="service-price">от 2 500 ₽</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about-parallax" id="about">
+  <div class="about-parallax-bg"></div>
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-img-placeholder" aria-label="Фото консультанта">👩‍⚕️</div>
+        <div class="about-float-card">
+          <div class="about-float-num">12+</div>
+          <div class="about-float-label">Лет профессионального опыта</div>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <div class="section-tag">О нас</div>
+        <h2>Мы верим, что каждая мама заслуживает <em>бережную поддержку</em></h2>
+        <p>Наша команда — это сертифицированные консультанты по грудному вскармливанию с международным образованием и многолетним опытом работы с семьями.</p>
+        <p>Мы используем доказательный подход, основанный на рекомендациях ВОЗ и современных исследованиях в области лактации.</p>
+        <div class="credentials">
+          <div class="credential">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            Международная сертификация
+          </div>
+          <div class="credential">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            Медицинское образование
+          </div>
+          <div class="credential">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            Член АКЕВ
+          </div>
+          <div class="credential">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            12+ лет практики
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team / Consultants -->
+<section class="section team-section" id="team">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Команда</div>
+      <h2 class="section-title">Наши консультанты</h2>
+      <p class="section-desc">Профессионалы с международной сертификацией и большим сердцем</p>
+    </div>
+    <div class="team-grid">
+
+      <!-- Lead Consultant -->
+      <div class="team-card lead reveal">
+        <div class="team-photo">
+          <div class="team-lead-badge">Главный консультант</div>
+          👩‍⚕️
+        </div>
+        <div class="team-info">
+          <div class="team-name">Ксения Ковалевская</div>
+          <div class="team-role">Главный консультант · IBCLC · Основатель ЛактоМама</div>
+          <p class="team-bio">Ксения — сертифицированный консультант по лактации с 12-летним стажем. Окончила медицинский факультет, прошла международную сертификацию IBCLC. Помогла более чем 1500 семьям наладить грудное вскармливание. Автор обучающих программ для будущих консультантов и спикер профильных конференций.</p>
+          <div class="team-tags">
+            <span class="team-tag">IBCLC</span>
+            <span class="team-tag">Член АКЕВ</span>
+            <span class="team-tag">Медицинское образование</span>
+            <span class="team-tag">Перинатальная психология</span>
+          </div>
+          <div class="team-stats-row">
+            <div>
+              <div class="team-stat-val">1500+</div>
+              <div class="team-stat-lbl">Консультаций</div>
+            </div>
+            <div>
+              <div class="team-stat-val">12</div>
+              <div class="team-stat-lbl">Лет опыта</div>
+            </div>
+            <div>
+              <div class="team-stat-val">98%</div>
+              <div class="team-stat-lbl">Довольных мам</div>
+            </div>
+          </div>
+          <div class="team-socials">
+            <a href="#" class="team-social-link" aria-label="Telegram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+            </a>
+            <a href="#" class="team-social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other consultants -->
+      <div class="team-card reveal">
+        <div class="team-photo">👩‍🔬</div>
+        <div class="team-info">
+          <div class="team-name">Ольга Никитина</div>
+          <div class="team-role">Консультант IBCLC</div>
+          <p class="team-bio">Специалист по сложным случаям: недоношенные дети, короткая уздечка, докорм у груди. 8 лет практики.</p>
+          <div class="team-tags">
+            <span class="team-tag">IBCLC</span>
+            <span class="team-tag">Неонатология</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-photo">👩‍🏫</div>
+        <div class="team-info">
+          <div class="team-name">Дарья Белова</div>
+          <div class="team-role">Консультант · Перинатальный психолог</div>
+          <p class="team-bio">Помогает мамам не только с техникой кормления, но и с эмоциональной стороной материнства. 6 лет опыта.</p>
+          <div class="team-tags">
+            <span class="team-tag">Психология</span>
+            <span class="team-tag">Послеродовая поддержка</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-photo">👩‍⚕️</div>
+        <div class="team-info">
+          <div class="team-name">Наталья Зайцева</div>
+          <div class="team-role">Консультант · Педиатр</div>
+          <p class="team-bio">Совмещает педиатрический опыт с консультированием по ГВ. Эксперт по введению прикорма. 10 лет стажа.</p>
+          <div class="team-tags">
+            <span class="team-tag">Педиатрия</span>
+            <span class="team-tag">Прикорм</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section testimonials-bg" id="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Отзывы</div>
+      <h2 class="section-title">Что говорят наши мамы</h2>
+      <p class="section-desc">Реальные истории реальных семей</p>
+    </div>
+
+    <div class="carousel-wrapper reveal" id="testimonialCarousel">
+      <div class="carousel-track" id="carouselTrack">
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">«После консультации у Ксении Ковалевской всё встало на свои места. Малыш начал правильно захватывать грудь, и кормление стало приятным. Объяснила всё просто и спокойно — огромное спасибо!»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">А</div>
+            <div>
+              <div class="testimonial-name">Анна М.</div>
+              <div class="testimonial-detail">мама 3-месячного сына</div>
+              <div class="testimonial-consultant">✦ Консультант: Ксения Ковалевская</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">«Ольга Никитина — невероятный специалист! У сына была короткая уздечка, и никто не мог разобраться. Ольга определила проблему с первого визита и помогла наладить кормление за неделю.»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">Е</div>
+            <div>
+              <div class="testimonial-name">Елена К.</div>
+              <div class="testimonial-detail">мама 4-месячного сына, Мурманск</div>
+              <div class="testimonial-consultant">✦ Консультант: Ольга Никитина</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">«Обращалась к Дарье Беловой с послеродовой тревогой — боялась, что не хватает молока. Дарья помогла и с техникой кормления, и эмоционально поддержала. Как психолог она просто находка для новоиспечённых мам.»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">Т</div>
+            <div>
+              <div class="testimonial-name">Татьяна Р.</div>
+              <div class="testimonial-detail">мама 6-месячных двойняшек</div>
+              <div class="testimonial-consultant">✦ Консультант: Дарья Белова</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">«Наталья Зайцева составила идеальный план введения прикорма без отказа от груди. Как педиатр она смотрит на вопрос шире — и питание, и развитие. Сын с удовольствием ест и грудное молоко, и обычную еду.»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">В</div>
+            <div>
+              <div class="testimonial-name">Вера Л.</div>
+              <div class="testimonial-detail">мама 10-месячного сына</div>
+              <div class="testimonial-consultant">✦ Консультант: Наталья Зайцева</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">«Сопровождение в роддоме с Ксенией Ковалевской — лучшее решение! Была рядом в первые часы и помогла с первым прикладыванием. Малыш сразу взял грудь правильно. Спокойствие Ксении передалось и мне.»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">Д</div>
+            <div>
+              <div class="testimonial-name">Дина А.</div>
+              <div class="testimonial-detail">мама новорождённой, Мурманск</div>
+              <div class="testimonial-consultant">✦ Консультант: Ксения Ковалевская</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">«Живу в Североморске, консультировалась онлайн с Ксенией Ковалевской. Не ожидала, что по видеосвязи можно получить такую детальную помощь. Ксения разобрала позы для кормления, объяснила нюансы захвата — ребёнок стал наедаться с первого же дня!»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">О</div>
+            <div>
+              <div class="testimonial-name">Ольга В.</div>
+              <div class="testimonial-detail">мама 2-месячного сына, Североморск</div>
+              <div class="testimonial-consultant">✦ Консультант: Ксения Ковалевская</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">«Прошла курс подготовки к кормлению у Ксении Ковалевской ещё во время беременности. Ксения создала невероятно тёплую атмосферу, ответила на все вопросы. В роддоме чувствовала себя уверенно и знала, что делать с первых минут.»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">М</div>
+            <div>
+              <div class="testimonial-name">Мария С.</div>
+              <div class="testimonial-detail">мама новорождённого</div>
+              <div class="testimonial-consultant">✦ Консультант: Ксения Ковалевская</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">«Кормила первого ребёнка всего 2 месяца. Со вторым записалась в ЛактоМама к Ксении Ковалевской ещё до родов. Результат — год счастливого ГВ! Благодарна всей команде за терпение и поддержку.»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">Н</div>
+            <div>
+              <div class="testimonial-name">Наталья П.</div>
+              <div class="testimonial-detail">мама двоих детей, Апатиты</div>
+              <div class="testimonial-consultant">✦ Консультант: Ксения Ковалевская</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">«У дочки был лактостаз, а я запаниковала. Наталья Зайцева приехала на дом, всё быстро осмотрела и показала технику расцеживания. Через сутки стало значительно легче. Педиатрический опыт Натальи чувствуется!»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">И</div>
+            <div>
+              <div class="testimonial-name">Ирина Д.</div>
+              <div class="testimonial-detail">мама 5-месячной дочки, Мурманск</div>
+              <div class="testimonial-consultant">✦ Консультант: Наталья Зайцева</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="carouselPrev" aria-label="Предыдущий отзыв">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn" id="carouselNext" aria-label="Следующий отзыв">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Region Info: Murmansk Oblast -->
+<section class="section region-section" id="region">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Мурманская область</div>
+      <h2 class="section-title">ГВ в Заполярье</h2>
+      <p class="section-desc">Особенности грудного вскармливания и поддержка мам в Мурманской области</p>
+    </div>
+    <div class="region-grid">
+      <div class="region-main reveal">
+        <h3>Грудное вскармливание в условиях <em>Крайнего Севера</em></h3>
+        <p>Мурманская область — регион с уникальными климатическими условиями: полярная ночь, дефицит солнечного света, холодные зимы. Всё это влияет на здоровье мам и малышей, делая грудное вскармливание особенно важным для формирования иммунитета ребёнка.</p>
+        <p>Грудное молоко содержит более 500 полезных веществ, антитела и иммуноглобулины, которые особенно нужны детям в суровых северных условиях. По рекомендациям ВОЗ, исключительно грудное вскармливание до 6 месяцев и продолжение ГВ до 2 лет и дольше — оптимальный путь для здоровья ребёнка.</p>
+        <p>В Мурманской области работает сообщество консультантов по ГВ, в том числе группа поддержки кормящих мам «ми-ми-Милк» и семейный клуб «МАМА-ЛАДА» в Мурманске. Мурманский областной клинический многопрофильный центр поддерживает практики, доброжелательные к ребёнку, включая раннее прикладывание к груди и совместное пребывание мамы и малыша.</p>
+      </div>
+
+      <div class="region-card reveal">
+        <div class="region-card-icon">❄️</div>
+        <h4>Особенности региона</h4>
+        <p>Климат Заполярья требует особого внимания к питанию мамы и поддержке лактации:</p>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Дополнительный витамин D для мамы и малыша</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Усиленное питание кормящей мамы</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Профилактика сезонных заболеваний через ГВ</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Поддержка иммунитета в полярную ночь</li>
+        </ul>
+      </div>
+
+      <div class="region-card reveal">
+        <div class="region-card-icon">🏥</div>
+        <h4>Ресурсы в регионе</h4>
+        <p>Куда обратиться за помощью с ГВ в Мурманской области:</p>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>МОКМЦ — роддом с поддержкой ГВ</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Группа «ми-ми-Милк» — Мурманск, ЗАТО</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Клуб «МАМА-ЛАДА» — встречи и лекции</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Горячая линия: 8 800 2000 492 (бесплатно)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Parallax Band 2 -->
+<div class="parallax-band">
+  <div class="parallax-band-inner" style="animation-direction: reverse;">
+    <div class="band-text" style="animation-direction: reverse;">
+      <span>IBCLC</span><span>✦</span><span>Доказательная медицина</span><span>✦</span><span>Поддержка 24/7</span><span>✦</span><span>Бережный подход</span><span>✦</span>
+      <span>IBCLC</span><span>✦</span><span>Доказательная медицина</span><span>✦</span><span>Поддержка 24/7</span><span>✦</span><span>Бережный подход</span><span>✦</span>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Вопросы</div>
+      <h2 class="section-title">Частые вопросы</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Когда стоит обратиться к консультанту?
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-answer">Обращайтесь при любых трудностях: боль при кормлении, трещины сосков, ощущение нехватки молока, лактостаз, отказ ребёнка от груди, а также если вы хотите подготовиться к кормлению ещё до родов.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Как проходит консультация?
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-answer">Консультация длится 1–1.5 часа. Мы оцениваем прикладывание, наблюдаем за кормлением, отвечаем на все вопросы и составляем индивидуальный план действий. После консультации вы получаете письменные рекомендации.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Можно ли получить помощь онлайн?
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-answer">Да, мы проводим видеоконсультации через Zoom или WhatsApp. Многие вопросы можно эффективно решить дистанционно. Для сложных случаев рекомендуем очный визит.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Что такое IBCLC?
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-answer">IBCLC (International Board Certified Lactation Consultant) — это международный сертификат консультанта по лактации, подтверждающий высший уровень квалификации в области грудного вскармливания. Экзамен проводится раз в год по всему миру.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Сколько консультаций обычно нужно?
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-answer">В большинстве случаев достаточно 1–2 консультаций. Мы также предлагаем пакеты сопровождения для тех, кому нужна поддержка на протяжении длительного времени.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2>Готовы начать?</h2>
+      <p>Запишитесь на бесплатную 15-минутную ознакомительную беседу и узнайте, как мы можем вам помочь.</p>
+      <a href="tel:+79001234567" class="btn btn-white">
+        📞 Позвонить: +7 (900) 123-45-67
+      </a>
+      <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8; position: relative;">Или напишите в Telegram</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ЛактоМама</div>
+        <p class="footer-desc">Профессиональная помощь в грудном вскармливании. Бережно, доказательно, с любовью к каждой семье.</p>
+      </div>
+      <div>
+        <h4>Услуги</h4>
+        <ul>
+          <li><a href="#services">Первичная консультация</a></li>
+          <li><a href="#services">Онлайн-поддержка</a></li>
+          <li><a href="#services">Подготовка к ГВ</a></li>
+          <li><a href="#services">Решение проблем</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Информация</h4>
+        <ul>
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#faq">Частые вопросы</a></li>
+          <li><a href="#testimonials">Отзывы</a></li>
+          <li><a href="#">Блог</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+79001234567">+7 (900) 123-45-67</a></li>
+          <li><a href="mailto:info@mamalakt.ru">info@mamalakt.ru</a></li>
+          <li><a href="#">Telegram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ЛактоМама. Все права защищены.</span>
+      <span><a href="#">Политика конфиденциальности</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll To Bottom -->
+<button class="scroll-bottom" id="scrollBottomBtn" onclick="window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})" aria-label="В конец страницы">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 9l6 6 6-6"/>
+  </svg>
+</button>
+
+<!-- Scroll To Top -->
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 15l-6-6-6 6"/>
+  </svg>
+</button>
+
+<script>
+// ===== Theme Toggle =====
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  updateThemeIcon(next);
+}
+
+function updateThemeIcon(theme) {
+  const icon = document.getElementById('themeIcon');
+  if (theme === 'dark') {
+    icon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+  } else {
+    icon.innerHTML = '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>';
+  }
+}
+
+// ===== Accessibility Toggle =====
+function toggleA11y() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-a11y') === 'true';
+  html.setAttribute('data-a11y', !current);
+  document.getElementById('a11yToggle').classList.toggle('active', !current);
+}
+
+// ===== Font Size =====
+let baseFontSize = 16;
+function changeFontSize(delta) {
+  baseFontSize = Math.max(12, Math.min(24, baseFontSize + delta));
+  document.documentElement.style.setProperty('--base-font-size', baseFontSize + 'px');
+}
+
+// ===== Mobile Nav =====
+function toggleMobileNav() {
+  const nav = document.getElementById('mobileNav');
+  nav.classList.toggle('open');
+  document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+}
+
+// ===== FAQ =====
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => {
+    el.classList.remove('open');
+    el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+}
+
+// ===== Multi-Layer Parallax Engine =====
+const parallaxItems = document.querySelectorAll('.parallax-item');
+const serviceCards = document.querySelectorAll('.service-card');
+const testimonialCards = document.querySelectorAll('.testimonial-card');
+const teamCards = document.querySelectorAll('.team-card');
+
+// Scroll-driven parallax for floating elements
+let ticking = false;
+function updateParallax() {
+  const scrollY = window.scrollY;
+  parallaxItems.forEach(item => {
+    const speed = parseFloat(item.dataset.speed) || 0.03;
+    const dir = parseInt(item.dataset.dir) || 1;
+    const y = scrollY * speed * dir * 40;
+    const x = Math.sin(scrollY * speed * 0.5) * 15 * dir;
+    const rotate = scrollY * speed * dir * 2;
+    item.style.transform = `translate(${x}px, ${y}px) rotate(${rotate}deg)`;
+  });
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(updateParallax);
+    ticking = true;
+  }
+}, { passive: true });
+
+// Mouse-driven 3D tilt on service and testimonial cards
+function addTiltEffect(cards) {
+  cards.forEach(card => {
+    card.classList.add('tilt-parallax');
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-6px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateY(0) rotateX(0) translateY(0)';
+    });
+  });
+}
+addTiltEffect(serviceCards);
+addTiltEffect(testimonialCards);
+addTiltEffect(teamCards);
+
+// Hero mouse parallax — items respond to cursor position with depth
+const heroSection = document.querySelector('.hero');
+heroSection.addEventListener('mousemove', (e) => {
+  const cx = (e.clientX / window.innerWidth - 0.5);
+  const cy = (e.clientY / window.innerHeight - 0.5);
+  parallaxItems.forEach(item => {
+    const speed = parseFloat(item.dataset.speed) || 0.03;
+    const depthFactor = speed * 600;
+    const mx = cx * depthFactor;
+    const my = cy * depthFactor;
+    const currentTransform = item.style.transform || '';
+    // Apply mouse offset as additional translate
+    const base = currentTransform.replace(/translate\([^)]*\)\s*$/, '');
+    item.style.transform = base + ` translate(${mx}px, ${my}px)`;
+  });
+});
+
+// ===== Scroll Reveal =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ===== Navbar scroll effect & Scroll Top/Bottom buttons =====
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+const scrollBottomBtn = document.getElementById('scrollBottomBtn');
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  const scrollY = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight;
+  const winHeight = window.innerHeight;
+  const atBottom = scrollY + winHeight >= docHeight - 100;
+
+  if (scrollY > 100) {
+    navbar.style.boxShadow = '0 2px 20px var(--shadow)';
+  } else {
+    navbar.style.boxShadow = 'none';
+  }
+  // Scroll-to-top: show after 500px
+  if (scrollY > 500) {
+    scrollTopBtn.classList.add('visible');
+  } else {
+    scrollTopBtn.classList.remove('visible');
+  }
+  // Scroll-to-bottom: show near top, hide near bottom
+  if (scrollY < 300 && !atBottom) {
+    scrollBottomBtn.classList.add('visible');
+    scrollBottomBtn.classList.remove('hidden');
+  } else {
+    scrollBottomBtn.classList.remove('visible');
+    scrollBottomBtn.classList.add('hidden');
+  }
+}, { passive: true });
+
+// ===== Testimonial Carousel =====
+(function() {
+  const track = document.getElementById('carouselTrack');
+  const cards = Array.from(track.querySelectorAll('.testimonial-card'));
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+  const dotsContainer = document.getElementById('carouselDots');
+  let currentPage = 0;
+  let cardsPerView = 3;
+  let autoplayTimer;
+  const GAP = 24;
+
+  function getCardsPerView() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+  }
+
+  function totalPages() {
+    return Math.ceil(cards.length / cardsPerView);
+  }
+
+  function setCardWidths() {
+    const wrapperWidth = track.parentElement.offsetWidth;
+    const cardWidth = (wrapperWidth - GAP * (cardsPerView - 1)) / cardsPerView;
+    cards.forEach(c => {
+      c.style.minWidth = cardWidth + 'px';
+      c.style.maxWidth = cardWidth + 'px';
+    });
+  }
+
+  function buildDots() {
+    dotsContainer.innerHTML = '';
+    const pages = totalPages();
+    for (let i = 0; i < pages; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Страница ${i + 1}`);
+      dot.addEventListener('click', () => { goToPage(i); resetAutoplay(); });
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateDots() {
+    dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentPage);
+    });
+  }
+
+  function updateCarousel() {
+    const wrapperWidth = track.parentElement.offsetWidth;
+    const offset = currentPage * (wrapperWidth + GAP);
+    track.style.transform = `translateX(-${offset}px)`;
+    prevBtn.disabled = currentPage <= 0;
+    nextBtn.disabled = currentPage >= totalPages() - 1;
+    updateDots();
+  }
+
+  function goToPage(page) {
+    currentPage = Math.max(0, Math.min(page, totalPages() - 1));
+    updateCarousel();
+  }
+
+  function next() {
+    if (currentPage < totalPages() - 1) {
+      currentPage++;
+    } else {
+      currentPage = 0;
+    }
+    updateCarousel();
+  }
+
+  function prev() {
+    if (currentPage > 0) {
+      currentPage--;
+    } else {
+      currentPage = totalPages() - 1;
+    }
+    updateCarousel();
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplayTimer);
+    autoplayTimer = setInterval(next, 30000);
+  }
+
+  prevBtn.addEventListener('click', () => { prev(); resetAutoplay(); });
+  nextBtn.addEventListener('click', () => { next(); resetAutoplay(); });
+
+  // Touch/swipe
+  let startX = 0, isDragging = false;
+  track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; isDragging = true; }, { passive: true });
+  track.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) next(); else prev();
+      resetAutoplay();
+    }
+    isDragging = false;
+  }, { passive: true });
+
+  function init() {
+    cardsPerView = getCardsPerView();
+    currentPage = Math.min(currentPage, totalPages() - 1);
+    setCardWidths();
+    buildDots();
+    updateCarousel();
+    resetAutoplay();
+  }
+
+  init();
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(init, 150);
+  });
+
+  // Pause on hover
+  const wrapper = document.getElementById('testimonialCarousel');
+  wrapper.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+  wrapper.addEventListener('mouseleave', () => resetAutoplay());
+})();
+
+// Show scroll-bottom on load
+setTimeout(() => {
+  scrollBottomBtn.classList.add('visible');
+}, 800);
+</script>
+</body>
+</html>
